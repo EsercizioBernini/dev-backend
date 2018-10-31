@@ -9,12 +9,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Lightbulb {
 
-    /*mod*/
+    private String id;
     private String status;
     private String message;
 
-    public Lightbulb(String status) {
-        this.status = status;
+    public Lightbulb(String id) {
+        this.id = id;
     }
 
     public Lightbulb() {
@@ -36,4 +36,11 @@ public class Lightbulb {
         this.message = message;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

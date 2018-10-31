@@ -1,5 +1,6 @@
 package com.finedietro.smartlightbackend.service;
 
+import com.finedietro.smartlightbackend.model.Action;
 import com.finedietro.smartlightbackend.model.Lightbulb;
 
 /**
@@ -20,9 +21,23 @@ public class LightbulbService {
         this.lightbulb = lightbulb;
     }
 
-    public Lightbulb switchStatus() {
-        //TODO è solo una mock
+    public Lightbulb menageStatus(Action action) {
+       if(action.getAction().equals("accendi")){
         lightbulb.setStatus(STATUS_ON);
+       } else if(action.getAction().equals("spegni")){
+           lightbulb.setStatus(STATUS_OFF);
+       } else{
+           lightbulb.setStatus(STATUS_ERROR);
+           lightbulb.setMessage("Azione non esistente");
+       }
+        return lightbulb;
+    }
+    
+    public Lightbulb getLightbulbStatus(String id) {
+        //MOCK!!!
+        lightbulb.setId(id);
+        /*ACCENDI DAL METER*/
+        lightbulb.setStatus(STATUS_OFF);
         return lightbulb;
     }
 
