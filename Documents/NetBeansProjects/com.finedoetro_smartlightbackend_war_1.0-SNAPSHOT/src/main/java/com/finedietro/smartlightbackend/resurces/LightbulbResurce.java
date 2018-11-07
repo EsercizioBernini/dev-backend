@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author aless
  */
+
 @Path("lightbulb")
 public class LightbulbResurce {
 

@@ -18,10 +18,7 @@ public class LightbulbService {
     private String STATUS_SPEGNI = "SPEGNI";
 
     public LightbulbService() {
-    }
-
-    public LightbulbService(Lightbulb lightbulb) {
-        this.lightbulb = lightbulb;
+        this.lightbulb = new Lightbulb();
     }
 
     public Lightbulb menageStatus(Action action) {
@@ -40,7 +37,7 @@ public class LightbulbService {
         //MOCK!!!
         lightbulb.setId(id);
         /*ACCENDI DAL METER*/
-        lightbulb.setStatus(STATUS_OFF);
+        lightbulb.setStatus(STATUS_ON);
         return lightbulb;
     }
 
