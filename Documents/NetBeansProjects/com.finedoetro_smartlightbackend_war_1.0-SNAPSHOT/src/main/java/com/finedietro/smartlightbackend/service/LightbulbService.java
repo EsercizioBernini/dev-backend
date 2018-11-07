@@ -10,9 +10,12 @@ import com.finedietro.smartlightbackend.model.Lightbulb;
 public class LightbulbService {
 
     private Lightbulb lightbulb;
+
     private String STATUS_ON = "ON";
     private String STATUS_OFF = "OFF";
     private String STATUS_ERROR = "ERROR";
+    private String ACTION_ACCENDI = "ACCENDI";
+    private String STATUS_SPEGNI = "SPEGNI";
 
     public LightbulbService() {
     }
@@ -22,17 +25,17 @@ public class LightbulbService {
     }
 
     public Lightbulb menageStatus(Action action) {
-       if(action.getAction().equals("accendi")){
-        lightbulb.setStatus(STATUS_ON);
-       } else if(action.getAction().equals("spegni")){
-           lightbulb.setStatus(STATUS_OFF);
-       } else{
-           lightbulb.setStatus(STATUS_ERROR);
-           lightbulb.setMessage("Azione non esistente");
-       }
+        if (action.getAction().equalsIgnoreCase(ACTION_ACCENDI)) {
+            lightbulb.setStatus(STATUS_ON);
+        } else if (action.getAction().equalsIgnoreCase(STATUS_SPEGNI)) {
+            lightbulb.setStatus(STATUS_OFF);
+        } else {
+            lightbulb.setStatus(STATUS_ERROR);
+            lightbulb.setMessage("Azione non esistente");
+        }
         return lightbulb;
     }
-    
+
     public Lightbulb getLightbulbStatus(String id) {
         //MOCK!!!
         lightbulb.setId(id);

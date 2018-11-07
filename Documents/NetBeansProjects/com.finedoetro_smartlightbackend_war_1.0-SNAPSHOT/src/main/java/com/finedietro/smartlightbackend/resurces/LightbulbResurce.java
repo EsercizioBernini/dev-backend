@@ -24,8 +24,6 @@ public class LightbulbResurce {
     @Path("/{id}/status")
     @Produces(MediaType.APPLICATION_JSON)
     public Lightbulb getLightbulbStatus(@PathParam("id") String id) {
-        Lightbulb l = new Lightbulb(id);
-        ls.setLightbulb(l);
         return ls.getLightbulbStatus(id);
     }
 
@@ -34,8 +32,6 @@ public class LightbulbResurce {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Lightbulb setLightbulbStatus(Action action) {
-        Lightbulb l = new Lightbulb(action.getId());
-        ls.setLightbulb(l);
         return ls.menageStatus(action);
     }
 }
