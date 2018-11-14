@@ -11,10 +11,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-/**
- *
- * @author aless
- */
 
 @Path("lightbulb")
 public class LightbulbResurce {
@@ -33,6 +29,6 @@ public class LightbulbResurce {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Lightbulb setLightbulbStatus(Action action) {
-        return ls.menageStatus(action);
+        return ls.manageAction(action);
     }
 }
