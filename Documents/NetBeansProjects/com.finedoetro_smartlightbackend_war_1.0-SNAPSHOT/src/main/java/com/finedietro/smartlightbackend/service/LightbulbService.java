@@ -26,21 +26,22 @@ public class LightbulbService {
         this.ms = new MeterService();
     }
 
-    private booelan checkLightBulbStatus(String id) {   // DA FARE !!!!!!!!!
+    private boolean checkLightBulbStatus(String id) {        
 
-        this.rs = new ReleService(id);
+        rs = new ReleService(id);
+        rele = rs.getStatusReleFromIbBulb(id);
 
-        if (rs.getStatus().getStatus().equalsIgnoreCase(STATUS_ON)) {
+        if (rele.getStatus().equalsIgnoreCase(STATUS_ON)) {
             return true;
         } else if (rele.getStatus().equalsIgnoreCase(STATUS_OFF)) {
             return false;
         } else {
-
+            return false;
         }
-
     }
 
     public Lightbulb manageAction(Action action) {
+        if (action.getId().equalsIgnoreCase("001")){
         if (action.getAction().equalsIgnoreCase(ACTION_ACCENDI)) {
             lightbulb.setId(action.getId());
             lightbulb.setStatus(STATUS_ON);
@@ -51,13 +52,16 @@ public class LightbulbService {
             lightbulb.setMessage("Azione non esistente");
         }
         return lightbulb;
+        }else{
+            lightbulb.setMessage(STATUS_ERROR);
+            return lightbulb;
+        }
     }
 
     public Lightbulb getLightbulbStatus(String id) {
 
-        //MOCK!!!
         lightbulb.setId(id);
-        /*ACCENDI DAL METER*/
+
         if (checkLightBulbStatus(id)) {
             lightbulb.setStatus(STATUS_ON);
         } else {
